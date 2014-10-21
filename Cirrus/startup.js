@@ -1,0 +1,1 @@
+﻿directory.setLoginListener('cirrusLogin','subAdmin'); //advanced login listener

@@ -1,0 +1,176 @@
+﻿{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"UserClass": {
+				"panelColor": "#8DB3E2",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 32,
+						"Y": 24
+					}
+				},
+				"methods": {
+					"addTempUser": {
+						"note": "test"
+					}
+				}
+			},
+			"CarrierClass": {
+				"panelColor": "#eee",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 330,
+						"Y": 233
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 0,
+			"lastScriptLocation": {
+				"UserClass": {
+					"method": "UserClass/UserClass-methods.js",
+					"events": "UserClass/UserClass-events.js"
+				}
+			},
+			"relationCurve": {
+				"run": true,
+				"mode": 1
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "CarrierClass",
+			"className": "CarrierClass",
+			"collectionName": "CarrierClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "carrierId",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "carrierName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "carrierURL",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userClassCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "UserClassCollection",
+					"reversePath": true,
+					"path": "carrier"
+				}
+			]
+		},
+		{
+			"name": "UserClass",
+			"className": "UserClass",
+			"collectionName": "UserClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "userId",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "userFirstName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userLastName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "carrier",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "CarrierClass",
+					"path": "CarrierClass"
+				},
+				{
+					"name": "userCellNumber",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "tenentId",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				}
+			],
+			"events": [
+				{
+					"kind": "onSave",
+					"from": "model.UserClass.events.onSave",
+					"userDefined": true
+				},
+				{
+					"kind": "onInit",
+					"from": "model.UserClass.events.onInit",
+					"userDefined": true
+				}
+			],
+			"methods": [
+				{
+					"name": "getCurrentSession",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "model.UserClass.methods.getCurrentSession",
+					"userDefined": true
+				},
+				{
+					"name": "getSessionInfo",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "model.UserClass.methods.getSessionInfo",
+					"userDefined": true
+				},
+				{
+					"name": "setSessionInfo",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "model.UserClass.methods.setSessionInfo",
+					"userDefined": true
+				}
+			],
+			"publishAsJSGlobal": false
+		}
+	],
+	"type": []
+}

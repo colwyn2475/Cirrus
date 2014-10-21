@@ -1,0 +1,140 @@
+
+{
+	"toJSON" : true,
+	"extraProperties" : 
+	{
+		"version" : "2",
+		"classes" : 
+		{
+			"UserClass" : 
+			{
+				"panelColor" : "#8DB3E2",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : false,
+					"position" : 
+					{
+						"X" : 32,
+						"Y" : 24
+					}
+				},
+				"methods" : 
+				{
+					"addTempUser" : 
+					{
+						"note" : "test"
+					}
+				}
+			}
+		},
+		"model" : 
+		{
+			"scriptMode" : "manual",
+			"workspaceLeft" : 0,
+			"workspaceTop" : 0,
+			"lastScriptLocation" : 
+			{
+				"UserClass" : 
+				{
+					"method" : "UserClass/UserClass-methods.js",
+					"events" : "UserClass/UserClass-events.js"
+				}
+			},
+			"relationCurve" : 
+			{
+				"run" : true,
+				"mode" : 1
+			}
+		}
+	},
+	"dataClasses" : 
+	[
+		{
+			"name" : "UserClass",
+			"className" : "UserClass",
+			"collectionName" : "UserClassCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "userId",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "userName",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "userPassword",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "userRole",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "tenentId",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "uuid"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "onSave",
+					"from" : "$mainModel.UserClass.events.onSave",
+					"userDefined" : true
+				},
+				{
+					"kind" : "onInit",
+					"from" : "$mainModel.UserClass.events.onInit",
+					"userDefined" : true
+				}
+			],
+			"methods" : 
+			[
+				{
+					"name" : "getCurrentSession",
+					"applyTo" : "dataClass",
+					"scope" : "public",
+					"from" : "$mainModel.UserClass.methods.getCurrentSession",
+					"userDefined" : true
+				},
+				{
+					"name" : "getSessionInfo",
+					"applyTo" : "dataClass",
+					"scope" : "public",
+					"from" : "$mainModel.UserClass.methods.getSessionInfo",
+					"userDefined" : true
+				},
+				{
+					"name" : "setSessionInfo",
+					"applyTo" : "dataClass",
+					"scope" : "public",
+					"from" : "$mainModel.UserClass.methods.setSessionInfo",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "userId"
+				}
+			]
+		}
+	]
+}
